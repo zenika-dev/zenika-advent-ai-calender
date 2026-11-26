@@ -60,6 +60,12 @@
     <main id="steps">${stepsHTML}</main>
     <div class="progress" aria-hidden="true"><i id="bar"></i></div>`);
   if (!document.title) document.title = `${C.titre} · Capsule IA ${pad(C.numero)}`;
+  // Favicon Zenika (monogramme), ajouté une fois pour toutes les capsules.
+  if (!document.querySelector('link[rel~="icon"]')) {
+    [["icon", "image/svg+xml", "zenika-monogramme.svg"], ["icon", "image/png", "zenika-favicon-192.png"], ["apple-touch-icon", "", "zenika-favicon-192.png"]].forEach(([rel, type, f]) => {
+      const l = document.createElement("link"); l.rel = rel; if (type) l.type = type; l.href = `${ENGINE}img/${f}`; document.head.appendChild(l);
+    });
+  }
 
   // Titre d'ouverture : réduit la taille quand un mot long dépasse la carte.
   const h1 = document.querySelector(".step.hero h1");
