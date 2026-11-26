@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TITRE · Capsule IA NN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 0,                       // entier, unique : plus grand numéro existant + 1
+  theme: "THÈME",                  // reprendre un thème de capsules/manifest.js si possible
+  titre: "TITRE",
+  duree: "2 min",
+  accroche: "ACCROCHE",
+  pages: [
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 42 },
+      kicker: "KICKER", chiffre: "42 %",           // chiffre optionnel
+      titre: "TITRE DE LA PAGE",
+      texte: "TEXTE DE LA PAGE.",
+      source: { label: "Éditeur · Titre du document", url: "https://..." }
+    }
+    // 4 à 10 pages (repère)
+  ],
+  aRetenir: {
+    titre: "Trois réflexes",
+    points: [
+      "<b>Verbe.</b> Action concrète.",
+      "<b>Verbe.</b> Action concrète.",
+      "<b>Verbe.</b> Action concrète."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

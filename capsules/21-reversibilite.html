@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La réversibilité · Capsule IA 21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 21,
+  theme: "Gouvernance et Responsabilité",
+  titre: "La réversibilité",
+  decor: "sapin",
+  duree: "2 min",
+  accroche: "Un modèle d'IA peut être retiré, renchéri ou modifié sans vous demander votre avis. Être réversible, c'est pouvoir basculer vers une alternative testée.",
+  pages: [
+    {
+      forme: { type: "libre", fn: (i, n, o) => {
+        // Vos usages (gauche) reliés au fournisseur (droite) par un flux coupé en son milieu ; les bords de la coupure en or.
+        const q = i % 10, ball = (cx, r) => { const u = o.rand() * 2 - 1, a = o.rand() * o.TAU, s = Math.sqrt(1 - u * u), k = r * Math.cbrt(o.rand()); return [cx + k * s * Math.cos(a), k * u, k * s * Math.sin(a), 0]; };
+        if (q < 3) return ball(-2.4, .6);
+        if (q < 6) return ball(2.4, .6);
+        let x = (o.rand() * 2 - 1) * 1.75; x += x < 0 ? -.1 : .1;
+        const jag = Math.abs(x) < .45 ? o.gauss() * .12 : o.gauss() * .04;
+        return [x, jag, o.gauss() * .04, Math.abs(x) < .7 ? 1 : 0];
+      } },
+      kicker: "Le scénario",
+      titre: "Le modèle que vous utilisez aujourd'hui peut disparaître demain",
+      texte: "Retrait d'un modèle, changement de prix, de licence ou de réglementation : le lien avec un fournisseur peut se rompre. La bonne réponse n'est pas un discours, mais une alternative testée."
+    },
+    {
+      forme: { type: "pile", feuilles: 19, accent: "dessus" },
+      kicker: "Le rythme", chiffre: "19",
+      titre: "modèles Claude retirés entre novembre 2024 et août 2026",
+      texte: "Un éditeur retire régulièrement ses anciens modèles, parfois sept d'un coup (Claude 1 et Instant, le 6 novembre 2024). Ce que vous utilisez aujourd'hui a une date de fin.",
+      source: { label: "Anthropic · Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" }
+    },
+    {
+      forme: { type: "frise", jalons: 2, accent: [0, 1] },
+      kicker: "Le préavis", chiffre: "60 jours",
+      titre: "de préavis minimum avant le retrait d'un modèle Claude",
+      texte: "Claude Sonnet 4.5 : retrait annoncé le 30 septembre 2026, effectif le 30 novembre 2026. Passé ce délai, le modèle ne répond plus : la migration doit être prête avant l'annonce, pas après.",
+      source: { label: "Anthropic · Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" }
+    },
+    {
+      forme: { type: "barres", valeurs: [60, 183], accent: [1] },
+      kicker: "La comparaison", chiffre: "6 mois",
+      titre: "de préavis pour GPT-5, contre 60 jours minimum pour Claude",
+      texte: "Chez OpenAI, le retrait de GPT-5 a été annoncé le 11 juin 2026 pour le 11 décembre 2026. Le délai dépend de l'éditeur et du modèle : tenez un calendrier de ceux que vous utilisez.",
+      source: { label: "OpenAI · Deprecations", url: "https://platform.openai.com/docs/deprecations" }
+    },
+    {
+      forme: { type: "texte", segments: ["15", "→", "4 $"], accent: [2] },
+      kicker: "Le prix",
+      titre: "Aujourd'hui, Opus 5.5 coûte 4 $ le million de tokens en entrée, contre 15 $ pour Opus 4.1",
+      texte: "Opus 4.1 affiche encore 15 $ en entrée et 75 $ en sortie, Opus 5.5 4 $ et 20 $. Ce n'est pas le prix d'un même modèle qui baisse : l'éditeur pousse ses clients vers les modèles récents. Un prix peut changer l'alternative la plus rentable : comparez par tâche, et pas une fois pour toutes.",
+      source: { label: "Anthropic · Pricing", url: "https://platform.claude.com/docs/en/about-claude/pricing" }
+    },
+    {
+      forme: { type: "barres", valeurs: [100, 130], accent: [1] },
+      kicker: "Le comportement", chiffre: "+ 30 %",
+      titre: "de tokens avec le nouveau tokenizer, pour le même texte",
+      texte: "À partir de Claude 4.7, le même texte donne environ 30 % de tokens en plus, selon le contenu. Même prompt, facture et contexte différents : rejouez vos cas avant de changer de version.",
+      source: { label: "Anthropic · Pricing", url: "https://platform.claude.com/docs/en/about-claude/pricing" }
+    },
+    {
+      forme: { type: "reseau", noeuds: 6, accent: [0], centre: true },
+      kicker: "La parade", chiffre: "100+",
+      titre: "modèles joignables avec un seul format d'appel",
+      texte: "Des couches d'abstraction open source, comme LiteLLM, parlent à plus de 100 modèles avec le format d'OpenAI et prévoient un repli automatique. Le modèle devient un paramètre, pas un nom écrit en dur.",
+      source: { label: "LiteLLM · Documentation", url: "https://docs.litellm.ai/docs/" }
+    },
+    {
+      forme: { type: "pictos", icones: ["bulle", "loupe", "document", "engrenage"], accent: "tout" },
+      kicker: "Les conditions",
+      titre: "Quatre conditions réunies rendent la bascule possible",
+      texte: "Un point d'entrée qui ne nomme pas le fournisseur ; une alternative nommée et déjà évaluée ; des prompts versionnés chez vous, hors du fournisseur ; une bascule déjà exercée, pas seulement conçue."
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Surveillez les dates de retrait.</b> Tenez la liste des modèles que vous utilisez, avec leur date de fin annoncée.",
+      "<b>N'écrivez jamais le nom du modèle en dur.</b> Passez par un point d'entrée commun et laissez la configuration choisir.",
+      "<b>Versionnez vos prompts chez vous.</b> Rangés dans un dépôt Git, ils survivent à un changement de fournisseur.",
+      "<b>Nommez l'alternative.</b> Pour chaque type de tâche, un repli évalué et une bascule déjà exercée."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

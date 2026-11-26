@@ -1,0 +1,12 @@
+{
+  "name": "capsules-ia",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "manifest": "node tools/manifest.mjs",
+    "check": "node tools/check.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.49.1"
+  }
+}

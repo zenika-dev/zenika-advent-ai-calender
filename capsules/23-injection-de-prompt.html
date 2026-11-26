@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'injection de prompt · Capsule IA 23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 23,
+  theme: "Gouvernance et Responsabilité",
+  titre: "L'injection de prompt",
+  decor: "painDepice",
+  duree: "2 min",
+  accroche: "Un e-mail, une page web ou un ticket que l'IA lit peut contenir des ordres cachés. Savoir pourquoi permet de limiter les dégâts.",
+  pages: [
+    {
+      forme: { type: "texte", segments: ["LIRE", "=", "OBÉIR"], accent: [2] },
+      kicker: "Le principe",
+      titre: "Pour un modèle, une phrase lue peut valoir un ordre",
+      texte: "Un modèle ne distingue pas vos consignes du texte qu'il traite : tout lui arrive comme du texte à suivre. OWASP classe l'injection de prompt en première place des risques des applications d'IA.",
+      source: { label: "OWASP · LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }
+    },
+    {
+      forme: { type: "pictos", icones: ["personne", "document"], accent: [1] },
+      kicker: "Deux portes", chiffre: "2",
+      titre: "façons d'injecter : par l'utilisateur ou par un contenu lu",
+      texte: "Directe : l'utilisateur écrit lui-même une consigne détournée. Indirecte : l'ordre se cache dans un site web, un fichier ou un e-mail que l'IA lit pour vous. La seconde échappe à l'utilisateur, qui ne la voit pas.",
+      source: { label: "OWASP · LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }
+    },
+    {
+      forme: { type: "texte", segments: ["2023"], accent: "tout" },
+      kicker: "L'origine",
+      titre: "L'injection indirecte est démontrée dès 2023, sur Bing Chat",
+      texte: "Des chercheurs montrent que l'attaquant n'a pas besoin de parler au modèle : il dépose ses instructions dans des données que l'IA ira lire. Ils l'ont testé sur Bing Chat et sur des outils de complétion de code.",
+      source: { label: "Greshake et al. · Not what you've signed up for (arXiv)", url: "https://arxiv.org/abs/2302.12173" }
+    },
+    {
+      forme: { type: "pile", feuilles: 18, accent: "dessus" },
+      kicker: "Le piège",
+      titre: "Une consigne cachée n'a pas besoin d'être visible par un humain",
+      texte: "Il suffit que le modèle lise le texte, même invisible à l'écran. Vous résumez une page ou un document : l'ordre glissé dans une seule feuille de la pile peut changer le comportement de l'IA.",
+      source: { label: "OWASP · LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }
+    },
+    {
+      forme: { type: "frise", jalons: 4, accent: [3] },
+      kicker: "Le cas réel", chiffre: "9,3",
+      titre: "sur 10 : la gravité d'une faille déclenchée par un simple e-mail",
+      texte: "En 2025, la faille « EchoLeak » (CVE-2025-32711) permettait de faire sortir des données d'entreprise de Microsoft 365 Copilot via un e-mail piégé, sans aucun clic. Microsoft l'a corrigée.",
+      source: { label: "TechRepublic · EchoLeak, Microsoft 365 Copilot", url: "https://www.techrepublic.com/article/news-microsoft-365-copilot-flaw-echoleak/" }
+    },
+    {
+      forme: { type: "barres", valeurs: [23.6, 11.2], accent: [1] },
+      kicker: "La limite", chiffre: "11,2 %",
+      titre: "d'attaques réussissent encore après les parades d'un éditeur",
+      texte: "Sur l'agent de navigation d'Anthropic (tests d'août 2025), 23,6 % des attaques visées réussissaient sans protection. Les parades les ramènent à 11,2 % : l'éditeur reconnaît qu'il reste du travail.",
+      source: { label: "Anthropic · Piloting Claude in Chrome", url: "https://www.anthropic.com/news/claude-for-chrome" }
+    },
+    {
+      forme: { type: "reseau", noeuds: 4, accent: [0, 1, 2, 3], centre: true },
+      kicker: "La règle de trois", chiffre: "3",
+      titre: "capacités à ne jamais réunir dans un même agent",
+      texte: "Accès à des données privées, lecture de contenus non fiables, moyen de communiquer vers l'extérieur. Avec les trois, une injection devient un vol de données. Retirez-en une : les fournisseurs ne le feront pas pour vous.",
+      source: { label: "Simon Willison · The lethal trifecta", url: "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" }
+    },
+    {
+      forme: { type: "pictos", icones: ["cadenas", "personne", "loupe"], accent: [1] },
+      kicker: "Les parades",
+      titre: "Limitez les droits et faites valider les actions à risque",
+      texte: "OWASP ne promet aucune prévention infaillible, mais recommande trois leviers : le moindre privilège, une approbation humaine pour les actions sensibles, et le marquage des contenus non fiables.",
+      source: { label: "OWASP · LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Méfiez-vous de ce que l'agent lit.</b> E-mail, page web, ticket ou résultat d'outil : tout contenu externe peut contenir des ordres.",
+      "<b>Séparez les trois capacités.</b> Données privées, contenu externe et envoi vers l'extérieur ne vont jamais ensemble.",
+      "<b>Limitez les droits.</b> Donnez à l'agent le strict nécessaire pour sa tâche.",
+      "<b>Validez les actions sensibles.</b> Envoi, suppression, paiement : une personne approuve avant l'exécution."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

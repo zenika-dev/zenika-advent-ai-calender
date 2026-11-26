@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La délégation · Capsule IA 20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 20,
+  theme: "Gouvernance et Responsabilité",
+  titre: "La délégation",
+  decor: "cadeaux",
+  duree: "2 min",
+  accroche: "Confier une tâche à l'IA, c'est choisir votre rôle : diriger, valider ou surveiller. Plus l'agent est autonome, plus ce choix compte.",
+  pages: [
+    {
+      forme: { type: "texte", segments: ["CHOIX"], accent: "tout" },
+      kicker: "Le principe",
+      titre: "L'autonomie d'un agent est un choix, pas une fatalité",
+      texte: "Des chercheurs de l'Université de Washington proposent de traiter le niveau d'autonomie comme une décision de conception, distincte de ce que l'agent sait faire. Un agent très capable peut rester sous contrôle.",
+      source: { label: "Feng et al. · Levels of Autonomy for AI Agents", url: "https://arxiv.org/abs/2506.12469" }
+    },
+    {
+      forme: { type: "libre", fn: (i, n, o) => {
+        // Cinq colonnes, de l'opérateur à l'observateur : l'or = la part de décision que l'humain garde (illustratif).
+        const c = i % 5, p = [1, .7, .45, .15, .03][c];
+        return [-3 + c * 1.5 + (o.rand() - .5) * .9, -2 + o.rand() * 3.8, (o.rand() - .5) * .5, o.rand() < p ? 1 : 0];
+      } },
+      kicker: "L'échelle", chiffre: "5",
+      titre: "rôles possibles face à un agent, du pilotage à la surveillance",
+      texte: "Opérateur, collaborateur, consultant, approbateur, observateur : plus on avance, moins l'humain intervient.",
+      source: { label: "Feng et al. · Levels of Autonomy for AI Agents", url: "https://arxiv.org/abs/2506.12469" }
+    },
+    {
+      forme: { type: "frise", jalons: 3, accent: [0] },
+      kicker: "La règle",
+      titre: "Commencez par la solution la plus simple, puis montez si besoin",
+      texte: "Anthropic recommande de n'ajouter de la complexité qu'en cas de besoin : un agent échange du temps et du coût contre de meilleures performances. Pour une tâche bien définie, un workflow prévisible suffit souvent.",
+      source: { label: "Anthropic · Building effective agents", url: "https://www.anthropic.com/engineering/building-effective-agents" }
+    },
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 40 },
+      kicker: "La confiance", chiffre: "> 40 %",
+      titre: "des sessions des habitués laissent l'agent valider seul",
+      texte: "Dans Claude Code, les nouveaux utilisateurs activent la validation automatique complète dans environ 20 % des sessions ; après 750 sessions, c'est plus de 40 %. La confiance se construit à l'usage.",
+      source: { label: "Anthropic · Measuring AI agent autonomy in practice", url: "https://www.anthropic.com/research/measuring-agent-autonomy" }
+    },
+    {
+      forme: { type: "barres", valeurs: [1, 2], accent: [1] },
+      kicker: "Le doute", chiffre: "> × 2",
+      titre: "plus de questions de l'agent que d'interruptions humaines",
+      texte: "Sur les tâches les plus complexes, Claude Code s'arrête pour demander des précisions plus de deux fois plus souvent que l'humain ne l'interrompt. Un bon agent sait signaler son doute : c'est un critère de choix.",
+      source: { label: "Anthropic · Measuring AI agent autonomy in practice", url: "https://www.anthropic.com/research/measuring-agent-autonomy" }
+    },
+    {
+      forme: { type: "grille", cols: 25, rows: 5, accent: 1 },
+      kicker: "Le risque", chiffre: "0,8 %",
+      titre: "des actions d'agents seulement semblent irréversibles",
+      texte: "Dans l'usage de l'API d'Anthropic, la plupart des actions d'agents sont peu risquées et réversibles. Envoyer un e-mail à un client est irréversible : gardez la validation humaine pour ce genre d'action.",
+      source: { label: "Anthropic · Measuring AI agent autonomy in practice", url: "https://www.anthropic.com/research/measuring-agent-autonomy" }
+    },
+    {
+      forme: { type: "barres", valeurs: [1, 4, 15], accent: [1, 2] },
+      kicker: "La facture", chiffre: "× 15",
+      titre: "de tokens pour un système multi-agents, face à un simple chat",
+      texte: "Selon Anthropic, un agent utilise en moyenne environ 4 fois plus de tokens qu'une conversation, et un système multi-agents environ 15 fois plus. Cette autonomie ne vaut son prix que sur une tâche à forte valeur.",
+      source: { label: "Anthropic · How we built our multi-agent research system", url: "https://www.anthropic.com/engineering/multi-agent-research-system" }
+    },
+    {
+      forme: { type: "pictos", icones: ["personne", "loupe"], accent: [0] },
+      kicker: "En pratique",
+      titre: "Superviser, ce n'est pas tout approuver : c'est pouvoir intervenir",
+      texte: "Anthropic note qu'une supervision efficace n'exige pas d'approuver chaque action, mais d'être en position d'intervenir quand cela compte. Choisissez votre niveau tâche par tâche.",
+      source: { label: "Anthropic · Measuring AI agent autonomy in practice", url: "https://www.anthropic.com/research/measuring-agent-autonomy" }
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Choisissez votre rôle.</b> Pour chaque tâche, décidez si vous dirigez, validez ou surveillez.",
+      "<b>Commencez simple.</b> Un assistant ou un workflow suffit souvent ; l'agent autonome se mérite.",
+      "<b>Gardez la main sur l'irréversible.</b> Envoi, paiement, suppression : une personne valide.",
+      "<b>Comptez les tokens.</b> Un système multi-agents coûte environ quinze fois une conversation."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

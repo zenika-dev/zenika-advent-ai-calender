@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Données et modèles · Capsule IA 19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 19,
+  theme: "Gouvernance et Responsabilité",
+  titre: "Données et modèles",
+  decor: "painDepice",
+  duree: "2 min",
+  accroche: "Ce que vous confiez à l'IA dépend de la sensibilité de la donnée et de l'offre utilisée. Quatre réflexes pour ne pas le découvrir après coup.",
+  pages: [
+    {
+      forme: { type: "libre", fn: (i, n, o) => {
+        // Quatre classes emboîtées : la plus sensible (or) au cœur, la publique à l'extérieur.
+        const k = i % 4, R = [.6, 1.1, 1.6, 2.1][k], u = o.rand() * 2 - 1, a = o.rand() * o.TAU, s = Math.sqrt(1 - u * u);
+        const r = k === 0 ? R * Math.cbrt(o.rand()) : R + o.gauss() * .025;
+        const [y, z] = o.tiltX(r * u, r * s * Math.sin(a) * .5, .35);
+        return [r * s * Math.cos(a) * 1.3, y, z, k === 0 ? 1 : 0];
+      } },
+      kicker: "Le principe", chiffre: "4",
+      titre: "classes de données disent ce que l'on confie à l'IA",
+      texte: "Publique, interne, confidentielle, personnelle : classer ses données dit quel outil est permis. Ces quatre classes sont un exemple courant, à adapter à votre organisation. Au cœur, la plus sensible."
+    },
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 40 },
+      kicker: "Le constat", chiffre: "39,7 %",
+      titre: "des échanges avec l'IA contiennent des données sensibles",
+      texte: "Prompts, copier-coller et fichiers confondus, selon l'étude 2026 de l'éditeur de sécurité Cyberhaven sur les usages de ses clients. En moyenne, un salarié en envoie une fois tous les trois jours.",
+      source: { label: "Cyberhaven · Sensitive data flowing into AI tools", url: "https://www.cyberhaven.com/blog/sensitive-data-flowing-into-ai-tools" }
+    },
+    {
+      forme: { type: "barres", valeurs: [32.3, 24.9, 58.2, 60.9], accent: [3] },
+      kicker: "Le compte", chiffre: "61 %",
+      titre: "des usages de Perplexity passent par un compte personnel",
+      texte: "Même étude : 32 % pour ChatGPT, 25 % pour Gemini, 58 % pour Claude. Un compte personnel échappe à la connexion unique, aux journaux et aux réglages d'entraînement de l'entreprise.",
+      source: { label: "Cyberhaven · Sensitive data flowing into AI tools", url: "https://www.cyberhaven.com/blog/sensitive-data-flowing-into-ai-tools" }
+    },
+    {
+      forme: { type: "pictos", icones: ["document", "bulle", "cadenas"], accent: [0] },
+      kicker: "Le cas réel",
+      titre: "Du code confidentiel collé dans ChatGPT a fait interdire l'outil",
+      texte: "En 2023, selon la presse, des ingénieurs de Samsung ont soumis du code confidentiel et un compte rendu de réunion à ChatGPT. L'entreprise a banni ces outils, puis précisé que la mesure était temporaire.",
+      source: { label: "Fortune · Samsung bans ChatGPT after data leak", url: "https://fortune.com/2023/05/02/samsung-bans-employee-use-chatgpt-data-leak/" }
+    },
+    {
+      forme: { type: "texte", segments: ["5 ANS"], accent: "tout" },
+      kicker: "L'offre",
+      titre: "de conservation si un compte grand public accepte l'entraînement",
+      texte: "Exemple chez Anthropic depuis l'automne 2025 : sur les comptes Free, Pro et Max, 5 ans si vous acceptez l'entraînement, 30 jours sinon. Les offres professionnelles et l'API ne sont pas concernées.",
+      source: { label: "Anthropic · Updates to our consumer terms", url: "https://www.anthropic.com/news/updates-to-our-consumer-terms" }
+    },
+    {
+      forme: { type: "grille", cols: 5, rows: 5, accent: 1 },
+      kicker: "La loi", chiffre: "4 %",
+      titre: "du chiffre d'affaires mondial : l'amende maximale du RGPD",
+      texte: "Les données personnelles que vous collez dans un outil d'IA relèvent du RGPD. Le plafond des amendes est de 20 millions d'euros ou 4 % du chiffre d'affaires mondial, le montant le plus élevé.",
+      source: { label: "RGPD · Article 83", url: "https://gdpr-info.eu/art-83-gdpr/" }
+    },
+    {
+      forme: { type: "libre", fn: (i, n, o) => {
+        // Une zone (cadre et données, lavande) ; un mince filet (or) s'en échappe : le calcul peut se faire ailleurs.
+        const q = i % 10, t = o.rand(), g = (w) => o.gauss() * w;
+        if (q < 4) { const e = Math.floor(o.rand() * 4), X = [-2.8, .6], Y = [-1.7, 1.7];
+          if (e < 2) return [X[0] + t * (X[1] - X[0]), Y[e], g(.15), 0];
+          return [X[e - 2], Y[0] + t * (Y[1] - Y[0]), g(.15), 0]; }
+        if (q < 8) return [-1.1 + g(.55), g(.55), g(.3), 0];
+        return [.6 + t * 2.4 + g(.03 + .05 * t), .9 + 1.2 * t * t + g(.03 + .05 * t), g(.03), 1];
+      } },
+      kicker: "L'hébergement",
+      titre: "Stockées en Europe ne veut pas dire traitées en Europe",
+      texte: "Chez OpenAI, le stockage en Europe date de février 2025 ; le calcul en région est une option distincte, ajoutée en janvier 2026. Demandez où vos données sont stockées et où elles sont traitées.",
+      source: { label: "OpenAI · Introducing data residency in Europe", url: "https://openai.com/index/introducing-data-residency-in-europe/" }
+    },
+    {
+      forme: { type: "frise", jalons: 4, accent: [3] },
+      kicker: "L'exception",
+      titre: "Interdire pousse l'usage dans l'ombre : cadrez l'exception",
+      texte: "Cyberhaven observe que bloquer l'IA fait rarement baisser le risque : l'usage passe hors des contrôles. Prévoyez une demande motivée, une personne qui décide, une trace et une date de fin.",
+      source: { label: "Cyberhaven · Sensitive data flowing into AI tools", url: "https://www.cyberhaven.com/blog/sensitive-data-flowing-into-ai-tools" }
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Classez avant de coller.</b> Vérifiez la sensibilité de vos données avant de les confier à un assistant IA.",
+      "<b>Utilisez le compte de l'entreprise.</b> Un compte personnel échappe aux contrôles et aux réglages d'entraînement.",
+      "<b>Lisez ce que l'offre conserve.</b> Rétention, entraînement et lieu de traitement changent d'une offre à l'autre.",
+      "<b>Demandez une exception.</b> Un besoin hors cadre se déclare, se trace et expire, au lieu de se cacher."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

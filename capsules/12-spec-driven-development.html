@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spec-Driven · Capsule IA 12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 12,
+  theme: "Usages et Méthodologie",
+  titre: "Spec-Driven",
+  decor: "bonhomme",
+  duree: "2 min",
+  accroche: "Avec le Spec-Driven Development, l'effort passe du code à des spécifications claires, pour que l'IA livre le résultat attendu sans mauvaise surprise.",
+  pages: [
+    {
+      forme: { type: "texte", segments: ["SPEC"], accent: "tout" },
+      kicker: "Le principe",
+      titre: "La spécification devient l'unité centrale du travail",
+      texte: "Une spécification décrit précisément le résultat attendu et ses critères de réussite. L'IA exécute dans ce cadre au lieu de deviner à partir d'un prompt isolé. Votre valeur tient à la clarté du besoin."
+    },
+    {
+      forme: { type: "reseau", noeuds: 4, accent: [0], centre: true },
+      kicker: "La comparaison",
+      titre: "Du ticket relu à la fin à la spec validée en continu",
+      texte: "Avant, un ticket décrivait une tâche pour un collègue et les erreurs apparaissaient à la revue finale. Désormais, la spec fixe l'intention et des critères vérifiables : l'IA produit, l'humain valide la conformité."
+    },
+    {
+      forme: { type: "frise", jalons: 6, accent: [0, 1, 2, 3, 4, 5] },
+      kicker: "Le cycle", chiffre: "6",
+      titre: "spécifications jalonnent le cycle, de l'idée au retrait",
+      texte: "Intention métier, conception, code et tests, exploitation, opportunités, retrait : chaque étape remet une spec normée à la suivante. Chaque passage de relais repose sur des preuves mesurables, pas sur des suppositions orales."
+    },
+    {
+      forme: { type: "pile", feuilles: 5, accent: "dessus" },
+      kicker: "Les outils", chiffre: "5",
+      titre: "étapes dans GitHub Spec Kit, un toolkit libre pour agents IA",
+      texte: "Spec Kit (licence MIT) guide l'agent en cinq commandes : constitution (les règles du projet), specify (ce qu'on veut), plan (comment), tasks (le découpage) puis implement. Il s'installe dans votre dépôt et fonctionne avec plusieurs agents, dont Claude Code, GitHub Copilot, Gemini CLI et Cursor.",
+      source: { label: "GitHub · github/spec-kit", url: "https://github.com/github/spec-kit" }
+    },
+    {
+      forme: { type: "reseau", noeuds: 4, accent: [0], centre: true },
+      kicker: "Les outils", chiffre: "4",
+      titre: "étapes dans BMAD, une méthode libre qui s'installe dans votre agent",
+      texte: "BMAD (licence MIT) ajoute à Claude Code ou GitHub Copilot des agents spécialisés (analyste, chef de produit, architecte, développeur) qui suivent une boucle : clarifier, planifier, construire et vérifier, puis ajuster. Le travail vit dans un arbre de tickets (initiative, epic, story) où chaque ticket tient lieu de spec. La méthode évolue vite : vérifiez sa version.",
+      source: { label: "BMAD · How BMAD works", url: "https://docs.bmad-method.org/start/how-bmad-works/" }
+    },
+    {
+      forme: { type: "pictos", icones: ["document", "engrenage", "personne"], accent: [1] },
+      kicker: "Le recul",
+      titre: "Trois niveaux de spec, et des outils qui évoluent vite",
+      texte: "Birgitta Böckeler (Thoughtworks) distingue la spec écrite avant la tâche (spec-first), la spec conservée ensuite (spec-anchored) et la spec seule éditée par l'humain (spec-as-source). Elle juge certains outils lourds et le Technology Radar parle de démarches encore élaborées : commencez léger, une spec courte et vérifiable.",
+      source: { label: "Martin Fowler · Understanding SDD: Kiro, spec-kit, Tessl", url: "https://www.martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" }
+    },
+    {
+      forme: { type: "texte", segments: ["REWORK"], accent: "tout" },
+      kicker: "Le piège",
+      titre: "Générer sans lever les ambiguïtés fait exploser les reprises",
+      texte: "L'IA ne devine pas les conventions implicites : elle applique à la lettre une demande incomplète. Chaque question laissée ouverte devient une dérive découverte tard, à l'intégration, puis une reprise (« rework »)."
+    },
+    {
+      forme: { type: "texte", segments: ["SPEC", "OK"], accent: [1] },
+      kicker: "En pratique",
+      titre: "Pas de code tant que la spec n'est pas vérifiable",
+      texte: "Avant de lancer l'IA, vérifiez la spec : contrat d'API publié, critères d'acceptation testables, chaque question tranchée ou confiée à une personne nommée. Ensuite seulement, l'IA exécute."
+    }
+  ],
+  aRetenir: {
+    titre: "Trois réflexes",
+    points: [
+      "<b>Formulez des critères vérifiables.</b> Exprimez vos demandes et critères d'acceptation en termes mesurables, sans adjectif vague.",
+      "<b>Levez les zones d'ombre.</b> Traitez cas limites et questions ouvertes avant de lancer l'IA : elle ne devine pas les conventions non écrites.",
+      "<b>Gardez le verdict.</b> L'intention et la validation finale restent votre responsabilité ; l'IA exécute."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

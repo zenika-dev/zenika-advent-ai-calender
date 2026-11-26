@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le RAG · Capsule IA 07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 7,
+  theme: "Les bases",
+  titre: "Le RAG",
+  decor: "etoiles",
+  duree: "2 min",
+  accroche: "Avant de répondre, l'IA peut chercher dans vos documents. Le RAG réduit les inventions, à condition que la recherche trouve le bon passage.",
+  pages: [
+    {
+      forme: { type: "frise", jalons: 3, accent: [1] },
+      kicker: "Le principe", chiffre: "3",
+      titre: "temps : chercher, ajouter au contexte, répondre",
+      texte: "Le RAG (génération augmentée par la recherche) retrouve d'abord dans vos documents les passages proches de la question, les ajoute au contexte, puis laisse l'IA répondre avec eux sous les yeux.",
+      source: { label: "Anthropic · Introducing Contextual Retrieval", url: "https://www.anthropic.com/news/contextual-retrieval" }
+    },
+    {
+      forme: { type: "pile", feuilles: 24, accent: "dessus" },
+      kicker: "L'origine", chiffre: "21 M",
+      titre: "de passages de 100 mots dans l'index du RAG d'origine",
+      texte: "Le terme date de 2020 : des chercheurs ont découpé Wikipédia en 21 millions de passages de 100 mots et fait chercher le modèle dedans avant de répondre. Votre base documentaire joue ce rôle.",
+      source: { label: "Lewis et al. · Retrieval-Augmented Generation (2020)", url: "https://arxiv.org/abs/2005.11401" }
+    },
+    {
+      forme: { type: "pictos", icones: ["document", "bulle"], accent: [0] },
+      kicker: "Le gain",
+      titre: "Appuyée sur des documents, l'IA invente moins",
+      texte: "En 2021, des chercheurs ont montré qu'une étape de recherche réduit nettement l'hallucination d'un agent conversationnel, selon des évaluateurs humains. Moins ne veut pas dire jamais.",
+      source: { label: "Shuster et al. · Retrieval Augmentation Reduces Hallucination", url: "https://arxiv.org/abs/2104.07567" }
+    },
+    {
+      forme: { type: "barres", valeurs: [4, 68], accent: [1] },
+      kicker: "La fraîcheur", chiffre: "68 %",
+      titre: "de réponses justes avec des documents à jour, contre 4 % avec des documents périmés",
+      texte: "Même modèle, même question : « Qui dirige tel pays ? ». Avec des documents de 2016, il se trompe presque toujours, car les dirigeants ont changé. Avec ceux de 2018, il répond juste 68 fois sur 100. Pour mettre le savoir à jour, on remplace les documents, pas le modèle.",
+      source: { label: "Lewis et al. · Retrieval-Augmented Generation (2020)", url: "https://arxiv.org/abs/2005.11401" }
+    },
+    {
+      forme: { type: "texte", segments: ["+ 3 %"], accent: "tout" },
+      kicker: "Le découpage",
+      titre: "Un passage isolé perd son contexte : + 3 %, de quoi ?",
+      texte: "Le RAG découpe les documents en passages de quelques centaines de tokens. Pris seul, « le chiffre d'affaires a augmenté de 3 % » ne dit ni quelle entreprise ni quel trimestre : la recherche le retrouve mal.",
+      source: { label: "Anthropic · Introducing Contextual Retrieval", url: "https://www.anthropic.com/news/contextual-retrieval" }
+    },
+    {
+      forme: { type: "barres", valeurs: [5.7, 2.9, 1.9], accent: [2] },
+      kicker: "La recherche", chiffre: "5,7 → 1,9",
+      titre: "% de passages utiles manqués, avec contexte et reclassement",
+      texte: "Dans les tests d'Anthropic, 5,7 % des passages pertinents échappent aux 20 premiers résultats. Ajouter du contexte à chaque passage, puis reclasser les résultats, ramène cet échec à 1,9 %. Mesuré en septembre 2024.",
+      source: { label: "Anthropic · Introducing Contextual Retrieval", url: "https://www.anthropic.com/news/contextual-retrieval" }
+    },
+    {
+      forme: { type: "pile", feuilles: 20, accent: "tous-les-6" },
+      kicker: "L'alternative", chiffre: "500",
+      titre: "pages : en dessous, collez tout dans le prompt, sans RAG",
+      texte: "Si votre base tient dans environ 200 000 tokens, soit à peu près 500 pages, vous pouvez la joindre entière à la requête. Le RAG devient utile quand la base dépasse la fenêtre de contexte.",
+      source: { label: "Anthropic · Introducing Contextual Retrieval", url: "https://www.anthropic.com/news/contextual-retrieval" }
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Appuyez-vous sur vos documents.</b> Une IA qui répond à partir de passages retrouvés invente moins qu'une IA qui répond de mémoire.",
+      "<b>Soignez le découpage.</b> Un passage isolé doit dire de quoi il parle : entreprise, date, sujet.",
+      "<b>Vérifiez la recherche.</b> Contrôlez que le bon passage est retrouvé, puis qu'il est utilisé dans la réponse.",
+      "<b>Comparez avec le prompt long.</b> Pour une petite base, tout joindre à la requête est plus simple qu'un RAG."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

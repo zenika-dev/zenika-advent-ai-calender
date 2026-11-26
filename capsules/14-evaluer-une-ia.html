@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Évaluer une IA · Capsule IA 14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 14,
+  theme: "Usages et Méthodologie",
+  titre: "Évaluer une IA",
+  decor: "lutins",
+  duree: "2 min",
+  accroche: "« Ça a l'air bon » ne suffit pas. Un jeu de test, un critère mesurable et un juge calibré disent si l'IA fait vraiment bien son travail.",
+  pages: [
+    {
+      forme: { type: "texte", segments: ["AU", "FEELING"], accent: "tout" },
+      kicker: "Le piège",
+      titre: "« Ça a l'air de marcher » n'est pas une évaluation",
+      texte: "Lire deux ou trois réponses et se dire « c'est bien » ne prouve rien. OpenAI range « juger au feeling » et « évaluer seulement après avoir livré » parmi les erreurs classiques. Sans mesure, impossible de savoir si votre dernière modification a amélioré le résultat ou l'a dégradé.",
+      source: { label: "OpenAI · Evaluation best practices", url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices" }
+    },
+    {
+      forme: { type: "frise", jalons: 6, accent: [4] },
+      kicker: "La méthode", chiffre: "6",
+      titre: "étapes pour évaluer, en commençant par les cas de test",
+      texte: "Anthropic conseille de préparer d'abord des cas de test, cas limites compris, avant même d'écrire le prompt. On écrit ensuite le prompt, on l'essaie, on le corrige, puis on le vérifie sur un jeu de test mis de côté avant de livrer. Chaque critère de réussite doit être précis et mesurable.",
+      source: { label: "Anthropic · Define success criteria and build evaluations", url: "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      forme: { type: "pile", feuilles: 18, accent: "tous-les-6" },
+      kicker: "Vos données",
+      titre: "Le jeu de test doit ressembler à ce que vos utilisateurs envoient",
+      texte: "Un jeu de test trop éloigné de l'usage réel donne une note flatteuse mais trompeuse. Mélangez des questions courantes, des cas limites et des cas piégés. Puisez dans vos journaux d'usage pour l'enrichir au fil du temps, avec les vraies questions et les vraies erreurs.",
+      source: { label: "OpenAI · Evaluation best practices", url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices" }
+    },
+    {
+      forme: { type: "pictos", icones: ["engrenage", "personne", "bulle"], accent: [2] },
+      kicker: "Les juges",
+      titre: "Trois façons de noter : un programme, une personne, une IA",
+      texte: "Un programme vérifie automatiquement (une réponse exacte, un format) : c'est rapide et fiable, mais sans nuance. Une personne juge finement, mais c'est lent et coûteux. Une IA peut noter des cas complexes à grande échelle, à condition de vérifier d'abord qu'elle note comme le ferait un humain.",
+      source: { label: "Anthropic · Define success criteria and build evaluations", url: "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 80 },
+      kicker: "Le juge IA", chiffre: "> 80 %",
+      titre: "d'accord entre un juge IA et des humains, comme entre deux humains",
+      texte: "En 2023, des chercheurs ont demandé à GPT-4 de comparer des réponses, puis ont comparé ses choix à ceux de personnes. L'accord dépasse 80 %, autant que celui observé entre deux personnes. Faire noter une IA devient donc crédible, mais elle a des défauts connus (voir la page suivante).",
+      source: { label: "Zheng et al. · Judging LLM-as-a-Judge (2023)", url: "https://arxiv.org/abs/2306.05685" }
+    },
+    {
+      forme: { type: "barres", valeurs: [65, 35], accent: [1] },
+      kicker: "Les biais", chiffre: "65 %",
+      titre: "de verdicts identiques quand on inverse l'ordre des réponses",
+      texte: "Un bon juge devrait donner le même verdict que la réponse A passe en premier ou en second. Dans l'étude, GPT-4 reste cohérent dans 65 % des cas seulement : il est influencé par la position. Les juges IA préfèrent aussi les textes longs et leurs propres écrits. Faites noter dans les deux ordres et ne gardez que les verdicts stables.",
+      source: { label: "Zheng et al. · Judging LLM-as-a-Judge (2023)", url: "https://arxiv.org/abs/2306.05685" }
+    },
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 51 },
+      kicker: "La régression", chiffre: "51 %",
+      titre: "de réussite en juin 2023, contre 84 % en mars, pour le même GPT-4",
+      texte: "Des chercheurs ont posé la même question à GPT-4 en mars puis en juin 2023 : « ce nombre est-il premier ? ». La réussite est passée de 84 % à 51 %, sans que le nom du service change. Un fournisseur peut modifier son modèle sans prévenir : rejouez votre jeu de test régulièrement.",
+      source: { label: "Chen et al. · How is ChatGPT's behavior changing?", url: "https://arxiv.org/abs/2307.09009" }
+    },
+    {
+      forme: { type: "reseau", noeuds: 4, accent: [0, 1, 2, 3], centre: false },
+      kicker: "La boucle",
+      titre: "Chaque changement se rejoue sur le même jeu de test",
+      texte: "Évaluez tôt et souvent, et gardez une trace de chaque résultat pour comparer avant et après. Faites relire un échantillon par une personne pour vérifier que le juge automatique se trompe peu. Un test réussi avec un modèle ne garantit pas le même résultat avec un autre : changer de modèle, même pour une version plus récente, impose de rejouer le jeu de test. Dès que le prompt, le modèle ou un outil change, on rejoue avant de déployer.",
+      source: { label: "OpenAI · Evaluation best practices", url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices" }
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Mesurez avant de livrer.</b> Fixez un critère chiffré et un jeu de test avant le premier prompt.",
+      "<b>Partez de vos cas réels.</b> Vos échanges et leurs cas limites valent mieux qu'un benchmark générique.",
+      "<b>Calibrez votre juge.</b> Faites relire un échantillon par une personne et notez dans les deux ordres.",
+      "<b>Rejouez à chaque changement.</b> Un test concluant sur un modèle ne vaut pas pour un autre : nouveau prompt, nouveau modèle ou mise à jour du fournisseur, on rejoue le même jeu de test."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>

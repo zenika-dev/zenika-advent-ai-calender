@@ -1,0 +1,21 @@
+/* Capsules IA · jetons de design partagés par les capsules et l'index.
+   Charte Zenika (zenika.com) : fond noir #121212, rouge Zenika #DF2147 en accent, police Nunito.
+   Le rouge porte le fait qui compte ; les particules au repos sont d'un gris froid neutre.
+   Pour changer de charte, ne modifier que ce fichier (+ la police dans les liens Google Fonts). */
+:root {
+  --ink: #121212;          /* fond : noir Zenika */
+  --navy: #2A121C;         /* halo derrière la forme : noir teinté de rouge */
+  --surface: #1E1E1E;      /* carte mobile (gris Zenika) */
+  --veil: rgba(30, 30, 30, .84);
+  --paper: #F5F5F5;        /* texte principal */
+  --muted: #C2C2C8;        /* texte secondaire */
+  --faint: #8E8E98;        /* légendes, sources */
+  --particle: #9A9AA8;     /* particules au repos : gris froid */
+  --accent: #DF2147;       /* rouge Zenika : le fait qui compte */
+  --accent-hi: #F2304F;    /* rouge vif : petits textes (contraste AA, 4,7:1 sur le noir) et lueurs */
+  --line: rgba(255, 255, 255, .12);
+  --display: "Nunito", system-ui, sans-serif;
+  --body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Nunito", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}

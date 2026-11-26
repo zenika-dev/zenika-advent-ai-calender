@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le dernier mot · Capsule IA 22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../engine/capsule.css">
+</head>
+<body>
+<script>
+window.CAPSULE = {
+  numero: 22,
+  theme: "Gouvernance et Responsabilité",
+  titre: "Le dernier mot",
+  decor: "lutins",
+  duree: "2 min",
+  accroche: "L'IA prépare, propose et exécute. Mais la loi comme les tribunaux demandent un humain derrière la décision.",
+  pages: [
+    {
+      forme: { type: "barres", valeurs: [812, 1630.36], accent: [0] },
+      kicker: "Le précédent", chiffre: "812 $",
+      titre: "à rembourser par la compagnie pour l'erreur de son chatbot",
+      texte: "Air Canada a plaidé que son chatbot était « une entité juridique distincte ». Un tribunal canadien a rejeté l'argument en 2024 : l'entreprise répond de tout ce que dit son site, page fixe ou chatbot.",
+      source: { label: "CBC News · Air Canada liable for chatbot's bad advice", url: "https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416" }
+    },
+    {
+      forme: { type: "pictos", icones: ["personne", "loupe"], accent: [0] },
+      kicker: "La règle",
+      titre: "Un système à haut risque doit pouvoir être surveillé par une personne",
+      texte: "L'AI Act (article 14) exige que cette personne puisse décider de ne pas utiliser le système, ou d'ignorer, d'annuler ou d'inverser sa sortie. La surveillance doit protéger la santé, la sécurité et les droits fondamentaux.",
+      source: { label: "AI Act · Article 14 : Human Oversight", url: "https://artificialintelligenceact.eu/article/14/" }
+    },
+    {
+      forme: { type: "frise", jalons: 3, accent: [0, 1, 2] },
+      kicker: "Le droit", chiffre: "3",
+      titre: "garanties quand une machine décide seule d'un sujet important",
+      texte: "Le RGPD (article 22) limite les décisions fondées uniquement sur un traitement automatisé. Quand une exception les autorise, la personne garde au moins le droit à une intervention humaine, d'exprimer son point de vue et de contester.",
+      source: { label: "RGPD · Article 22 : décision individuelle automatisée", url: "https://gdpr-info.eu/art-22-gdpr/" }
+    },
+    {
+      forme: { type: "pictos", icones: ["personne", "engrenage", "cadenas"], accent: "tout" },
+      kicker: "Le tri",
+      titre: "Un seul « oui » à trois questions suffit pour qu'une personne tranche",
+      texte: "Repère de travail, pas une règle légale. La décision engage-t-elle quelqu'un ? Peut-on revenir en arrière ? Une règle exige-t-elle un humain ? Si oui, l'IA prépare et une personne décide."
+    },
+    {
+      forme: { type: "texte", segments: ["BIAIS"], accent: "tout" },
+      kicker: "La loi le sait",
+      titre: "L'AI Act nomme le risque de suivre l'IA trop vite",
+      texte: "Il demande que les personnes chargées de la surveillance restent conscientes de la tendance à se fier trop à la sortie du système : le biais d'automatisation. Ce n'est pas un détail, c'est le piège principal.",
+      source: { label: "AI Act · Article 14 : Human Oversight", url: "https://artificialintelligenceact.eu/article/14/" }
+    },
+    {
+      forme: { type: "grille", cols: 10, rows: 10, accent: 6 },
+      kicker: "Le piège", chiffre: "6 %",
+      titre: "des cas : un clinicien écarte sa bonne réponse pour celle de l'outil",
+      texte: "Une étude citée par une revue de 74 travaux l'a mesuré. Même précis à 80-90 %, un outil peut faire abandonner une bonne décision. Relire reste nécessaire quand l'IA a presque toujours raison.",
+      source: { label: "Goddard et al. · Automation bias (JAMIA)", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/" }
+    },
+    {
+      forme: { type: "barres", valeurs: [100, 126], accent: [1] },
+      kicker: "Le surcoût", chiffre: "+ 26 %",
+      titre: "de risque de mauvaise décision quand le conseil de l'outil est faux",
+      texte: "Quatre études comparables donnent un risque relatif de 1,26 : un conseil erroné fait plus souvent suivre une erreur qu'une absence de conseil. L'aide est utile, sauf le jour où elle se trompe.",
+      source: { label: "Goddard et al. · Automation bias (JAMIA)", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/" }
+    },
+    {
+      forme: { type: "dessin", vue: [120, 52], accent: [0], trait: 3.5, chemins: [
+        "M6 34 C14 8 24 8 20 30 C17 46 30 42 36 22 C40 8 48 14 44 32 C42 42 54 38 58 24 C62 14 70 18 66 32 C64 40 76 36 82 26 C88 16 94 20 98 28 C102 36 110 30 115 20",
+        "M4 47 H116"
+      ] },
+      kicker: "Le garant",
+      titre: "Un nom d'humain derrière chaque décision qui engage",
+      texte: "Cette personne vérifie les preuves, peut dire « non » et répond du résultat. « C'est l'IA qui l'a fait » n'est pas une défense : l'affaire Air Canada l'a montré."
+    }
+  ],
+  aRetenir: {
+    titre: "Quatre réflexes",
+    points: [
+      "<b>Répondez de vos outils.</b> Un chatbot ou un agent n'est pas un tiers : l'entreprise assume ce qu'il dit et fait.",
+      "<b>Triez avant de déléguer.</b> Décision qui engage, irréversible ou encadrée par une règle : une personne tranche.",
+      "<b>Relisez même un outil fiable.</b> Un conseil faux peut vous faire abandonner une bonne décision.",
+      "<b>Nommez un garant.</b> Une personne qui vérifie les preuves, peut dire non et signe."
+    ]
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../engine/capsule.js"></script>
+</body>
+</html>
